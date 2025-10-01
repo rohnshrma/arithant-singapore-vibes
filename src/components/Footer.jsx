@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
-    <footer className="bg-foreground text-background py-16">
+    <footer className="bg-background text-foreground py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div>
@@ -13,28 +13,28 @@ export const Footer = () => {
               </div>
               <span className="font-bold text-xl">Visit Singapore</span>
             </Link>
-            <p className="text-background/70 text-sm">
+            <p className="text-foreground/70 text-sm">
               Your gateway to discovering the Lion City's wonders
             </p>
           </div>
 
           <div>
             <h3 className="font-bold mb-4">Plan Your Trip</h3>
-            <ul className="space-y-2 text-sm text-background/70">
-              <li><Link to="/things-to-do" className="hover:text-background transition-colors">Things To Do</Link></li>
-              <li><Link to="/neighbourhoods" className="hover:text-background transition-colors">Where To Stay</Link></li>
-              <li><Link to="/travel-tips" className="hover:text-background transition-colors">Getting Around</Link></li>
-              <li><Link to="/travel-tips" className="hover:text-background transition-colors">Travel Tips</Link></li>
+            <ul className="space-y-2 text-sm text-foreground/70">
+              <li><Link to="/things-to-do" className="hover:text-foreground transition-colors">Things To Do</Link></li>
+              <li><Link to="/neighbourhoods" className="hover:text-foreground transition-colors">Where To Stay</Link></li>
+              <li><Link to="/travel-tips" className="hover:text-foreground transition-colors">Getting Around</Link></li>
+              <li><Link to="/travel-tips" className="hover:text-foreground transition-colors">Travel Tips</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-bold mb-4">Explore</h3>
-            <ul className="space-y-2 text-sm text-background/70">
-              <li><Link to="/neighbourhoods" className="hover:text-background transition-colors">Neighbourhoods</Link></li>
-              <li><Link to="/food-and-drink" className="hover:text-background transition-colors">Food & Drink</Link></li>
-              <li><Link to="/things-to-do" className="hover:text-background transition-colors">Shopping</Link></li>
-              <li><Link to="/events" className="hover:text-background transition-colors">Events</Link></li>
+            <ul className="space-y-2 text-sm text-foreground/70">
+              <li><Link to="/neighbourhoods" className="hover:text-foreground transition-colors">Neighbourhoods</Link></li>
+              <li><Link to="/food-and-drink" className="hover:text-foreground transition-colors">Food & Drink</Link></li>
+              <li><Link to="/things-to-do" className="hover:text-foreground transition-colors">Shopping</Link></li>
+              <li><Link to="/events" className="hover:text-foreground transition-colors">Events</Link></li>
             </ul>
           </div>
 
@@ -57,7 +57,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-background/10 text-center text-sm text-background/70">
+        <div className="pt-8 border-t border-border text-center text-sm text-foreground/70">
           <p>&copy; 2025 Visit Singapore. Passion Made Possible.</p>
         </div>
       </div>

@@ -74,7 +74,7 @@ const ThingsToDo = () => {
       
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="bg-gradient-hero py-32 text-background">
+        <section className="bg-gradient-hero py-32">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-5xl md:text-7xl font-black mb-6">Things To Do</h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto opacity-90">

@@ -58,16 +58,16 @@ export const HeroSlider = () => {
             alt={slide.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/50 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
           
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-            <p className="text-background font-bold text-lg md:text-xl mb-4 animate-fade-in">
+            <p className="text-secondary font-bold text-lg md:text-xl mb-4 animate-fade-in">
               {slide.subtitle}
             </p>
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-background mb-6 tracking-tight animate-fade-in">
               {slide.title}
             </h1>
-            <p className="text-lg md:text-xl text-background mb-8 max-w-2xl animate-fade-in">
+            <p className="text-lg md:text-xl text-background/90 mb-8 max-w-2xl animate-fade-in">
               {slide.description}
             </p>
             <Button variant="hero" size="lg" className="text-base px-8 py-6 animate-fade-in">
@@ -84,23 +84,25 @@ export const HeroSlider = () => {
         </div>
       ))}
 
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 text-background hover:bg-background/20 h-12 w-12"
-      >
-        <ChevronLeft className="h-8 w-8" />
-      </Button>
+      <div className="absolute inset-0 flex items-center justify-between px-4">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={prevSlide}
+          className="text-background hover:bg-background/20 h-12 w-12"
+        >
+          <ChevronLeft className="h-8 w-8" />
+        </Button>
 
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 text-background hover:bg-background/20 h-12 w-12"
-      >
-        <ChevronRight className="h-8 w-8" />
-      </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={nextSlide}
+          className="text-background hover:bg-background/20 h-12 w-12"
+        >
+          <ChevronRight className="h-8 w-8" />
+        </Button>
+      </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
         {slides.map((_, index) => (

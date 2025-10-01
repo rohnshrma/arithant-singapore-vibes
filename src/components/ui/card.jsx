@@ -1,34 +1,36 @@
 import * as React from "react";
-
-import { cn } from "@/lib/utils";
+import MUICard from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContentMUI from "@mui/material/CardContent";
+import CardHeaderMUI from "@mui/material/CardHeader";
 
 const Card = React.forwardRef(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("rounded-lg border bg-card text-card-foreground shadow-sm", className)} {...props} />
+  <MUICard ref={ref} className={className} {...props} />
 ));
 Card.displayName = "Card";
 
 const CardHeader = React.forwardRef(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
+  <CardHeaderMUI ref={ref} className={className} {...props} />
 ));
 CardHeader.displayName = "CardHeader";
 
 const CardTitle = React.forwardRef(({ className, ...props }, ref) => (
-  <h3 ref={ref} className={cn("text-2xl font-semibold leading-none tracking-tight", className)} {...props} />
+  <div ref={ref} className={className} {...props} />
 ));
 CardTitle.displayName = "CardTitle";
 
 const CardDescription = React.forwardRef(({ className, ...props }, ref) => (
-  <p ref={ref} className={cn("text-sm text-muted-foreground", className)} {...props} />
+  <div ref={ref} className={className} {...props} />
 ));
 CardDescription.displayName = "CardDescription";
 
 const CardContent = React.forwardRef(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+  <CardContentMUI ref={ref} className={className} {...props} />
 ));
 CardContent.displayName = "CardContent";
 
 const CardFooter = React.forwardRef(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("flex items-center p-6 pt-0", className)} {...props} />
+  <CardActions ref={ref} className={className} {...props} />
 ));
 CardFooter.displayName = "CardFooter";
 
