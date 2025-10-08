@@ -168,7 +168,13 @@ export const Header = () => {
         {/* Mobile Navigation */}
         <Collapse in={open && isMobile}>
           <Box sx={{ 
-            backgroundColor: 'transparent'
+            borderTop: 1,
+            borderColor: 'rgba(255, 255, 255, 0.3)',
+            backgroundColor: 'rgba(255, 255, 255, 0.15)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+            borderRadius: '16px'
           }}>
             <Stack spacing={0} sx={{ p: 4 }}>
               {navItems.map((item, index) => (
