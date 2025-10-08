@@ -75,20 +75,23 @@ export const ExperienceSection = () => {
           </Typography>
         </Stack>
 
-        <Grid container spacing={{ xs: 3, sm: 4 }} sx={{ maxWidth: 1200, mx: 'auto', justifyContent: 'center' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <Grid container spacing={{ xs: 3, sm: 4 }} sx={{ maxWidth: 1200, justifyContent: 'center', alignItems: 'stretch' }}>
           {experiences.map((experience, index) => {
             const Icon = experience.icon;
             return (
-              <Grid item xs={12} sm={6} md={6} lg={3} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Grid item xs={12} sm={6} md={3} lg={3} key={index} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch' }}>
                 <Card
                   sx={{
                     height: '100%',
                     width: '100%',
-                    maxWidth: { xs: '100%', sm: '400px' },
+                    maxWidth: { xs: '100%', sm: '400px', md: '100%' },
                     textAlign: 'center',
                     border: 2,
                     borderColor: 'transparent',
                     transition: 'all 0.3s ease',
+                    display: 'flex',
+                    flexDirection: 'column',
                     '&:hover': {
                       transform: 'translateY(-4px)',
                       boxShadow: '0 20px 60px -15px rgba(225, 29, 72, 0.3)',
@@ -100,7 +103,7 @@ export const ExperienceSection = () => {
                     },
                   }}
                 >
-                  <CardContent sx={{ pt: 6, pb: 4, px: 3 }}>
+                  <CardContent sx={{ pt: 6, pb: 4, px: 3, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                     <Stack alignItems="center" spacing={3}>
                       <Box
                         className="experience-icon"
@@ -128,7 +131,8 @@ export const ExperienceSection = () => {
               </Grid>
             );
           })}
-        </Grid>
+          </Grid>
+        </Box>
       </Container>
     </Box>
   );
