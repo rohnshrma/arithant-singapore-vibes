@@ -33,22 +33,16 @@ export const Header = () => {
       position="absolute" 
       elevation={0}
       sx={{ 
-        backgroundColor: 'rgba(255, 255, 255, 0.2)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '3px solid',
-        borderTopColor: 'secondary.main',
-        borderBottom: 1,
-        borderColor: 'rgba(255, 255, 255, 0.3)',
+        backgroundColor: 'transparent',
         zIndex: 1300,
         top: 0,
         left: 0,
         right: 0,
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+        py: 2,
       }}
     >
       <Container maxWidth="xl">
-        <Toolbar sx={{ minHeight: 72, justifyContent: 'space-between', px: { xs: 2, md: 0 } }}>
+        <Toolbar sx={{ minHeight: 80, justifyContent: 'space-between', px: { xs: 3, md: 2 }, py: 1 }}>
           {/* Logo */}
           <Box sx={{ display: 'flex', alignItems: 'center', flex: { xs: 1, md: 0 } }}>
             <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -108,13 +102,11 @@ export const Header = () => {
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
-                    e.target.style.backdropFilter = 'blur(10px)';
+                    e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
                     e.target.style.transform = 'translateY(-1px)';
                   }}
                   onMouseLeave={(e) => {
                     e.target.style.backgroundColor = 'transparent';
-                    e.target.style.backdropFilter = 'none';
                     e.target.style.transform = 'translateY(0)';
                   }}
                 >
@@ -132,8 +124,7 @@ export const Header = () => {
                   sx={{ 
                     color: 'white',
                     '&:hover': {
-                      backgroundColor: 'rgba(255, 255, 255, 0.25)',
-                      backdropFilter: 'blur(10px)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
                       color: 'white',
                     },
                     transition: 'all 0.2s ease',
@@ -145,8 +136,7 @@ export const Header = () => {
                   sx={{ 
                     color: 'white',
                     '&:hover': {
-                      backgroundColor: 'rgba(255, 255, 255, 0.25)',
-                      backdropFilter: 'blur(10px)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
                       color: 'white',
                     },
                     transition: 'all 0.2s ease',
@@ -159,12 +149,12 @@ export const Header = () => {
             {isMobile && (
               <IconButton
                 onClick={() => setOpen(!open)}
-                aria-expanded={open}
-                aria-label="Toggle navigation"
+            aria-expanded={open}
+            aria-label="Toggle navigation"
                 sx={{ 
                   color: 'white',
                   '&:hover': {
-                    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
                     backdropFilter: 'blur(10px)',
                   },
                 }}
@@ -178,14 +168,9 @@ export const Header = () => {
         {/* Mobile Navigation */}
         <Collapse in={open && isMobile}>
           <Box sx={{ 
-            borderTop: 1, 
-            borderColor: 'rgba(255, 255, 255, 0.3)', 
-            backgroundColor: 'rgba(255, 255, 255, 0.15)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
+            backgroundColor: 'transparent'
           }}>
-            <Stack spacing={0} sx={{ p: 3 }}>
+            <Stack spacing={0} sx={{ p: 4 }}>
               {navItems.map((item, index) => (
                 <a
                   key={item.key}
@@ -207,12 +192,10 @@ export const Header = () => {
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
-                    e.target.style.backdropFilter = 'blur(10px)';
+                    e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
                   }}
                   onMouseLeave={(e) => {
                     e.target.style.backgroundColor = 'transparent';
-                    e.target.style.backdropFilter = 'none';
                   }}
                 >
                   {item.label}
