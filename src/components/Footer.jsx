@@ -1,66 +1,182 @@
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
-import { Link } from "react-router-dom";
+import {
+  Box,
+  Typography,
+  Container,
+  Grid,
+  Stack,
+  IconButton,
+  Avatar,
+  Divider,
+} from "@mui/material";
+
+const socialLinks = [
+  { icon: Facebook, href: "#", label: "Facebook" },
+  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Youtube, href: "#", label: "YouTube" },
+];
+
+const planTripLinks = [
+  { label: "Things To Do", path: "#", key: "things-to-do" },
+  { label: "Where To Stay", path: "#", key: "where-to-stay" },
+  { label: "Getting Around", path: "#", key: "getting-around" },
+  { label: "Travel Tips", path: "#", key: "travel-tips" },
+];
+
+const exploreLinks = [
+  { label: "Neighbourhoods", path: "#", key: "neighbourhoods" },
+  { label: "Food & Drink", path: "#", key: "food-drink" },
+  { label: "Shopping", path: "#", key: "shopping" },
+  { label: "Events", path: "#", key: "events" },
+];
 
 export const Footer = () => {
   return (
-    <footer className="bg-background text-foreground py-16">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          <div>
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">SG</span>
-              </div>
-              <span className="font-bold text-xl">Visit Singapore</span>
-            </Link>
-            <p className="text-foreground/70 text-sm">
-              Your gateway to discovering the Lion City's wonders
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-bold mb-4">Plan Your Trip</h3>
-            <ul className="space-y-2 text-sm text-foreground/70">
-              <li><Link to="/things-to-do" className="hover:text-foreground transition-colors">Things To Do</Link></li>
-              <li><Link to="/neighbourhoods" className="hover:text-foreground transition-colors">Where To Stay</Link></li>
-              <li><Link to="/travel-tips" className="hover:text-foreground transition-colors">Getting Around</Link></li>
-              <li><Link to="/travel-tips" className="hover:text-foreground transition-colors">Travel Tips</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-bold mb-4">Explore</h3>
-            <ul className="space-y-2 text-sm text-foreground/70">
-              <li><Link to="/neighbourhoods" className="hover:text-foreground transition-colors">Neighbourhoods</Link></li>
-              <li><Link to="/food-and-drink" className="hover:text-foreground transition-colors">Food & Drink</Link></li>
-              <li><Link to="/things-to-do" className="hover:text-foreground transition-colors">Shopping</Link></li>
-              <li><Link to="/events" className="hover:text-foreground transition-colors">Events</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-bold mb-4">Connect With Us</h3>
-            <div className="flex gap-3">
-              <a href="#" className="h-10 w-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                <Facebook className="h-5 w-5" />
+    <Box
+      component="footer"
+      sx={{
+        backgroundColor: 'background.default',
+        color: 'text.primary',
+        py: 8,
+      }}
+    >
+      <Container maxWidth="xl">
+        <Grid container spacing={6} sx={{ mb: 6 }}>
+          {/* Brand Section */}
+          <Grid item xs={12} md={3}>
+            <Stack spacing={3}>
+              <a 
+                href="/" 
+                style={{ 
+                  textDecoration: 'none', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: 12 
+                }}
+              >
+                <Avatar 
+                  sx={{ 
+                    width: 40, 
+                    height: 40, 
+                    backgroundColor: 'primary.main',
+                    fontWeight: 'bold',
+                    fontSize: '1.25rem'
+                  }}
+                >
+                  SG
+                </Avatar>
+                <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'text.primary' }}>
+                  Visit Singapore
+                </Typography>
               </a>
-              <a href="#" className="h-10 w-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="h-10 w-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="h-10 w-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                <Youtube className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
-        </div>
+              <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
+                Your gateway to discovering the Lion City's wonders
+              </Typography>
+            </Stack>
+          </Grid>
 
-        <div className="pt-8 border-t border-border text-center text-sm text-foreground/70">
-          <p>&copy; 2025 Visit Singapore. Passion Made Possible.</p>
-        </div>
-      </div>
-    </footer>
+          {/* Plan Your Trip */}
+          <Grid item xs={12} md={3}>
+            <Stack spacing={2}>
+              <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
+                Plan Your Trip
+              </Typography>
+              {planTripLinks.map((link) => (
+                <a
+                  key={link.key}
+                  href={link.path}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: 'text.secondary',
+                      '&:hover': {
+                        color: 'primary.main',
+                      },
+                      transition: 'color 0.2s ease',
+                    }}
+                  >
+                    {link.label}
+                  </Typography>
+                </a>
+              ))}
+            </Stack>
+          </Grid>
+
+          {/* Explore */}
+          <Grid item xs={12} md={3}>
+            <Stack spacing={2}>
+              <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
+                Explore
+              </Typography>
+              {exploreLinks.map((link) => (
+                <a
+                  key={link.key}
+                  href={link.path}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: 'text.secondary',
+                      '&:hover': {
+                        color: 'primary.main',
+                      },
+                      transition: 'color 0.2s ease',
+                    }}
+                  >
+                    {link.label}
+                  </Typography>
+                </a>
+              ))}
+            </Stack>
+          </Grid>
+
+          {/* Social Media */}
+          <Grid item xs={12} md={3}>
+            <Stack spacing={3}>
+              <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
+                Connect With Us
+              </Typography>
+              <Stack direction="row" spacing={1}>
+                {socialLinks.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <IconButton
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      sx={{
+                        backgroundColor: 'grey.100',
+                        color: 'text.secondary',
+                        '&:hover': {
+                          backgroundColor: 'primary.main',
+                          color: 'white',
+                        },
+                        transition: 'all 0.2s ease',
+                      }}
+                    >
+                      <Icon size={20} />
+                    </IconButton>
+                  );
+                })}
+              </Stack>
+            </Stack>
+          </Grid>
+        </Grid>
+
+        <Divider sx={{ mb: 4 }} />
+        
+        <Box sx={{ textAlign: 'center' }}>
+          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+            &copy; 2025 Visit Singapore. Passion Made Possible.
+          </Typography>
+        </Box>
+      </Container>
+    </Box>
   );
 };

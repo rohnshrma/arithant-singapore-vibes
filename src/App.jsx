@@ -1,50 +1,106 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import ThingsToDo from "./pages/ThingsToDo";
-import Neighbourhoods from "./pages/Neighbourhoods";
-import FoodAndDrink from "./pages/FoodAndDrink";
-import TravelTips from "./pages/TravelTips";
-import Events from "./pages/Events";
-import NotFound from "./pages/NotFound";
-
-const queryClient = new QueryClient();
 
 const theme = createTheme({
   palette: {
     mode: "light",
-    primary: { main: "hsl(0, 84%, 48%)" },
-    secondary: { main: "hsl(142, 76%, 36%)" },
-    background: { default: "hsl( var(--background) )" },
-    text: { primary: "hsl( var(--foreground) )" },
+    primary: { 
+      main: "#e11d48", 
+      light: "#f43f5e", 
+      dark: "#be123c" 
+    },
+    secondary: { 
+      main: "#059669", 
+      light: "#10b981", 
+      dark: "#047857" 
+    },
+    background: { 
+      default: "#ffffff",
+      paper: "#fafafa"
+    },
+    text: { 
+      primary: "#1f2937", 
+      secondary: "#6b7280" 
+    },
+    grey: {
+      50: "#f9fafb",
+      100: "#f3f4f6",
+      200: "#e5e7eb",
+      300: "#d1d5db",
+      400: "#9ca3af",
+      500: "#6b7280",
+      600: "#4b5563",
+      700: "#374151",
+      800: "#1f2937",
+      900: "#111827",
+    }
+  },
+  typography: {
+    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+    h1: {
+      fontSize: '4.5rem',
+      fontWeight: 900,
+      lineHeight: 1.1,
+      letterSpacing: '-0.02em',
+    },
+    h2: {
+      fontSize: '3.5rem',
+      fontWeight: 900,
+      lineHeight: 1.1,
+      letterSpacing: '-0.02em',
+    },
+    h3: {
+      fontSize: '2rem',
+      fontWeight: 800,
+      lineHeight: 1.2,
+    },
+    h4: {
+      fontSize: '1.5rem',
+      fontWeight: 700,
+      lineHeight: 1.3,
+    },
+    body1: {
+      fontSize: '1.125rem',
+      lineHeight: 1.6,
+    },
+    body2: {
+      fontSize: '1rem',
+      lineHeight: 1.5,
+    },
   },
   shape: { borderRadius: 12 },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          fontWeight: 600,
+          borderRadius: 12,
+        },
+        sizeLarge: {
+          padding: '12px 32px',
+          fontSize: '1.125rem',
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          borderRadius: 16,
+          boxShadow: '0 10px 40px -10px rgba(0, 0, 0, 0.1)',
+          '&:hover': {
+            boxShadow: '0 20px 60px -15px rgba(225, 29, 72, 0.3)',
+          },
+        },
+      },
+    },
+  },
 });
 
 const App = () => (
   <ThemeProvider theme={theme}>
     <CssBaseline />
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/things-to-do" element={<ThingsToDo />} />
-            <Route path="/neighbourhoods" element={<Neighbourhoods />} />
-            <Route path="/food-and-drink" element={<FoodAndDrink />} />
-            <Route path="/travel-tips" element={<TravelTips />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <Index />
   </ThemeProvider>
 );
 
